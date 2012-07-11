@@ -1,4 +1,4 @@
-# Symbola - an icon font for TileMill and Mapnik
+# Symbola - an icon font for maps
 
 This is a font made from public domain SVG's. The designers deserve all of the credit,
 I'm just packaging them into fonts.
@@ -73,6 +73,6 @@ To delete the fonts:
     make clean
 
 To add new icons, just add more svg files to the `svg` directory. Right now the `generate.py` script is fairly
-brittle, so the file names must be sequential. The font glyphs start at 0x2100 (8448 decimal). So take the glyph
+brittle, so the file names must be sequential. The font glyphs start at 0x2100 (8448 decimal). So take the svg
 number and add 8448 to it to get the unicode character required for your icon. Don't forget to convert that number
 back to hex if you use the PostgreSQL syntax above.
