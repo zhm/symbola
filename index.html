@@ -4,11 +4,29 @@
     <meta charset="utf-8">
     <title>Symbola - An icon font for maps</title>
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.21.min.js"></script>
     <script type="text/javascript" src="js/underscore.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-tooltip.js"></script>
     <script type="text/javascript">
     $(function() {
-    $("[rel=tooltip]").tooltip();
+      $("[rel=tooltip]").tooltip();
+
+      $('.font-size').slider({
+        value: (60/500) * 100,
+        slide: function(event, ui) {
+          var minFontSize = 3;
+          var maxFontSize = 500;
+
+          var fontSize = Math.round(((ui.value / 100) * (maxFontSize - minFontSize)) + minFontSize);
+
+          $('.icon').css('font-size', fontSize + 'px');
+          $('.icon').css('width', (fontSize + 4) + 'px');
+          $('.icon').css('height', (fontSize + 4) + 'px');
+          $('.icon').css('line-height', fontSize + 'px');
+
+          $('.font-size-label').html('Change the font size: ' + fontSize + 'px');
+        }
+      });
     });
     </script>
     <!--[if lt IE 9]>
@@ -16,6 +34,7 @@
     <![endif]-->
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="css/symbola.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/jquery-ui-1.8.21.css" type="text/css" media="screen" charset="utf-8" />
   </head>
   <body>
     <div class="navbar navbar-fixed-top">
@@ -45,6 +64,10 @@
         Check out the <a href="https://github.com/zhm/symbola/blob/master/README.md">README</a> for usage instructions. It also includes
         instructions on how to add your own icons to it and create your own version of the font.
       </p>
+      <div>
+        <p class="lead"><strong class="font-size-label">Change the font size: 60px</strong></p>
+        <div class="font-size"></div>
+      </div>
       <div class="icons">
         <a class="icon" href="#" rel="tooltip" title="&amp;#x2100;">&#x2100;</a>
         <a class="icon" href="#" rel="tooltip" title="&amp;#x2101;">&#x2101;</a>

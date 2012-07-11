@@ -22,15 +22,19 @@
 .icon {
   float: left;
   font-family: Symbola;
-  font-size: 48px;
-  width: 50px;
-  height: 50px;
+  font-size: 60px;
+  width: 64px;
+  height: 64px;
   margin: 20px;
   color: black;
-  line-height: 48px !important;
+  line-height: 56px !important;
 }
 
 .icon:hover {
   text-decoration: none !important;
   color: black !important;
+}
+
+.font-size {
+  width: 260px;
 }

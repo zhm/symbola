@@ -13,6 +13,7 @@ for i in range(1, 268):
 
   ymin = glyph.boundingBox()[1]
   glyph.transform([1, 0, 0, 1, 0, -ymin])
+  glyph.autoHint()
 
   glyph.left_side_bearing = glyph.right_side_bearing = 10
 
