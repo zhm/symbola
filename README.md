@@ -1,16 +1,16 @@
 # Symbola - an icon font for TileMill and Mapnik
 
-This is a font made from public domain SVG's. They deserve all of the credit,
+This is a font made from public domain SVG's. The designers deserve all of the credit,
 I'm just packaging them into fonts.
 
 - [Maki](https://github.com/mapbox/maki/)
 - [AIGA](http://thenounproject.com/collections/aiga/)
 - [National Park Service](http://thenounproject.com/collections/national-park-service/)
 
-This font allows you to make dynamic marker symbols in TileMill based on data
-attributes. In addition to being able to dynamically select a marker symbol, you can
-easily change the colors of the symbols on your map using the standard `text-fill`
-attribute in TileMill. All of the Mapnik text effects will work with the icons.
+This font allows you to manage symbology in the datasource and helps reduce duplication
+in your carto stylesheet. Using a font for the icons also lets you easily change the colors
+of the symbols on your map using the standard `text-fill` attribute in TileMill. In fact
+all of the Mapnik text effects will work on the icons.
 
 # Usage
 Doing symbols with fonts like this isn't perfect and does require you to have specific unicode
@@ -55,3 +55,24 @@ called `atons`. Here is my stylesheet that makes use of the icons:
       text-halo-radius: 0.5;
       text-halo-fill: #333333;
     }
+
+
+# Adding New Icons
+First, you will need to install fontforge. On a Mac, that's easy:
+
+    brew update && brew install fontforge
+
+This will give you a `fontforge` command that's required for building the font files.
+
+To build the font files, simply run:
+
+    make
+
+To delete the fonts:
+
+    make clean
+
+To add new icons, just add more svg files to the `svg` directory. Right now the `generate.py` script is fairly
+brittle, so the file names must be sequential. The font glyphs start at 0x2100 (8448 decimal). So take the glyph
+number and add 8448 to it to get the unicode character required for your icon. Don't forget to convert that number
+back to hex if you use the PostgreSQL syntax above.
