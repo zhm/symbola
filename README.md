@@ -29,8 +29,8 @@ each row. Here I have a table named `atons_geo` with some navigation aids in it.
     ALTER TABLE atons_geo ADD icon text;
 
 Now that you have a column to hold the icon attribute, you can put some data into it. You can lookup
-the hex codes for each icon on the [web site](http://zhm.github.com/symbola/). How you want
-to do your symbology is entirely up to you. My table actually had a column named `symbol`, so
+the hex codes for each icon on the [web site](http://zhm.github.com/symbola/) by hovering on the icon.
+How you want to do your symbology is entirely up to you. My table actually had a column named `symbol`, so
 that seems like a good fit:
 
     UPDATE atons_geo SET icon=chr(x'2100'::int) WHERE symbol='RRL-O';
